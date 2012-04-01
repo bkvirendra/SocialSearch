@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width">
   
   <!-- Oopen Graph Meta Tags -->
-  <meta property="og:title" content="Facebook Instant Search!">
+  <meta property="og:title" content="Facebook Instant Search! Search Facebook In RealTime">
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://teckzone.in/fbinstant/">
   <meta property="og:image" content="http://teckzone.in/fbinstant/img/thumbnail.jpg">
@@ -32,6 +32,7 @@
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
   <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="shortcut icon" href="favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
 <!-- For first- and second-generation iPad: -->
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
@@ -86,22 +87,22 @@
           if (profile) {
 		   switch (type) {
 			   case "status": 
-			      var final="<div class='well'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i> "+type+"</p></div></div>";
+			      var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i> "+type+"</p></div></div></div>";
 				  break;
 			   	case "link":  
-				  var final="<div class='well'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :-</b> "+data.name+"<br><b>Link :-</b><a href="+data.link+" target='_blank'>"+data.link+"</a><br><b>Description :-</b> "+data.description+"<br><b>Caption :-</b> <a href='http://"+data.caption+"' target='_blank'>"+data.caption+"</p></div><div><p><i class='icon-search icon-tags'></i> "+type+"</p></div></div>";
+				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :-</b> "+data.name+"<br><b>Link :-</b><a href="+data.link+" target='_blank'>"+data.link+"</a><br><b>Description :-</b> "+data.description+"<br><b>Caption :-</b> <a href='http://"+data.caption+"' target='_blank'>"+data.caption+"</p></div><div><p><i class='icon-search icon-tags'></i> "+type+"</p></div></div></div>";
 				  break;
 				case "video":
-				  var final="<div class='well'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b>"+data.caption+"<br><b>Source :-</b><a href="+data.source+" target='_blank'>"+data.source+"</a></p></div><div><p><i class='icon-search icon-film'></i> "+type+"</p></div></div>";
+				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b>"+data.caption+"<br><b>Source :-</b><a href="+data.source+" target='_blank'>"+data.source+"</a></p></div><div><p><i class='icon-search icon-film'></i> "+type+"</p></div></div></div>";
 				  break; 
 				case "photo":
-				  var final="<div class='well'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b> "+data.caption+"<br><b>Link:-</b> <a href="+data.link+" target='_blank'>"+data.link+"</a></p></div><div><p><i class='icon-search icon-picture'></i> "+type+"</p></div></div>";  
+				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b> "+data.caption+"<br><b>Link:-</b> <a href="+data.link+" target='_blank'>"+data.link+"</a></p></div><div><p><i class='icon-search icon-picture'></i> "+type+"</p></div></div></div>";  
 				  break;  
 				default:
-				    var final="<div class='well'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i> "+type+"</p></div></div>";
+				    var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i> "+type+"</p></div></div></div>";
 		   }
            $('#result p').highlight(keyword);
-           $('div.desc').expander();
+           $('p').expander();
           } else if(!profile) {
          $("#result").html("<br><br><br><br><div id='no'>Wo...woo..! Wait on buddy what are exactly lookin for ??</div>"); 
          } else {

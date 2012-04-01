@@ -172,3 +172,15 @@ margin-top: 1px;
 
 a:visited{color:inherit}
 a:hover{color:inherit}
+
+.profile_text {
+	cursor:default;
+	padding-left:70px;
+}
+
+.profile_pics {
+	width:55px;
+	height:60px;
+	position:static;
+	float:left;
+}
