@@ -65,7 +65,7 @@
   <script type="text/javascript"> 
   $(document).ready(function(){
   $("#query").focus(); // Focusing on the Search
-  $("#result").html('<br><br><br><div class="well" id="showcase"><h1>Start Searching for Whats Going On "Facebook"!<br>And What People are Talking (Sharing) About It !<br><br><b>Note:</b> Press "Enter" To Submit Query (as we are out of Buttons) <b>:)</b></h1></div>');
+  $("#result").html('<br><br><br><div class="well" id="showcase"><h1>Like Us On Facebook To Stay Updated!<br><span id="fb_like" style="text-align: center"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Finstantsearch&amp;send=false&amp;layout=standard&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=351985104836764" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:35px;" allowTransparency="true"></iframe><br>Start Searching for Whats Going On "Facebook"!<br>And What People are Talking (Sharing) About It !<br><br><b>Note:</b> Press "Enter" To Submit Query (as we are out of Buttons) <b>:)</b></h1></div>');
   $("#target").submit(function(){
    var search_input = $("#query").val(); // Getting the value from the Query
    document.title = ''+ search_input +' - FB Instant Search'; // Chaning the Title of the Page
@@ -130,7 +130,6 @@
 	     }
   });
 </script>
-<script>document.write('<script src="logs.php?query='+url_query+'"><\/script>')</script>
 </head>
 <body>
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
@@ -169,10 +168,10 @@
             <p>Share the Word !!! Created By <a href="http://bkvirendra.github.com/" target="_blank" title="Virendra Rajput">Virendra Rajput</a>
             <div id="twitterbutton"><script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script><div> <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://teckzone.in/fbinstant/" data-counturl="http://teckzone.in/fbinstant/" data-text="Facebook Instant Search! Searching Facebook In RealTime !!! " data-via="TeckZoneIn" data-related="TeckZoneIn">Tweet</a></div></div>
 
-            <div id="likebutton"><iframe src="http://www.facebook.com/plugins/like.php?href=http://teckzone.in/fbinstant/&layout=button_count&show_faces=false&width=100&action=like&font=verdana
+            <div id="likebutton"><iframe src="http://www.facebook.com/plugins/like.php?href=http://www.facebook.com/instantsearch/&layout=button_count&show_faces=false&width=100&action=like&font=verdana
 &colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe></div>
 
-            <div id="sharebutton" style="padding-top:1px;"><a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></div>
+            <div id=sharebutton style=padding-top:1px><a name=fb_share type=button_count href=http://www.facebook.com/sharer.php>Share</a><script src=http://static.ak.fbcdn.net/connect.php/js/FB.Share type=text/javascript></script></div>
 
             <div id="stumblebutton"><script src="http://www.stumbleupon.com/hostedbadge.php?s=1"></script></div>
 
