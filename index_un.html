@@ -53,6 +53,7 @@
   <!-- Loading Libraries -->
   <script type="text/javascript" src="js/jquery.highlight-3.js"></script>
   <script type="text/javascript" src="js/jquery.expander.min.js"></script>
+  <script type="text/javascript" src="js/jquery.cuteTime.min.js"></script>
   
   <!-- Loading Google WebFornts -->
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
@@ -84,25 +85,29 @@
           var title=data.from.name;
           var dis=data.message;
 		  var type = data.type;
+		  var date = new Date(data.created_time);
+		  var exact_date = date.toLocaleDateString();
+		  var exact_time = date.toLocaleTimeString();
           if (profile) {
 		   switch (type) {
 			   case "status": 
-			      var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i> "+type+"</p></div></div></div>";
+			      var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
 				  break;
 			   	case "link":  
-				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :-</b> "+data.name+"<br><b>Link :-</b><a href="+data.link+" target='_blank'>"+data.link+"</a><br><b>Description :-</b> "+data.description+"<br><b>Caption :-</b> <a href='http://"+data.caption+"' target='_blank'>"+data.caption+"</p></div><div><p><i class='icon-search icon-tags'></i> "+type+"</p></div></div></div>";
+				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :-</b> "+data.name+"<br><b>Link :-</b><a href="+data.link+" target='_blank'>"+data.link+"</a><br><b>Description :-</b> "+data.description+"<br><b>Caption :-</b> <a href='http://"+data.caption+"' target='_blank'>"+data.caption+"</p></div><div><p><i class='icon-search icon-tags'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
 				  break;
 				case "video":
-				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b>"+data.caption+"<br><b>Source :-</b><a href="+data.source+" target='_blank'>"+data.source+"</a></p></div><div><p><i class='icon-search icon-film'></i> "+type+"</p></div></div></div>";
+				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b>"+data.caption+"<br><b>Source :-</b><a href="+data.source+" target='_blank'>"+data.source+"</a></p></div><div><p><i class='icon-search icon-film'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
 				  break; 
 				case "photo":
-				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b> "+data.caption+"<br><b>Link:-</b> <a href="+data.link+" target='_blank'>"+data.link+"</a></p></div><div><p><i class='icon-search icon-picture'></i> "+type+"</p></div></div></div>";  
+				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b> "+data.caption+"<br><b>Link:-</b> <a href="+data.link+" target='_blank'>"+data.link+"</a></p></div><div><p><i class='icon-search icon-picture'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";  
 				  break;  
 				default:
-				    var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i> "+type+"</p></div></div></div>";
+				    var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
 		   }
            $('#result p').highlight(keyword);
            $('p').expander();
+		   $('.timestamp').cuteTime();
           } else if(!profile) {
          $("#result").html("<br><br><br><br><div id='no'>Wo...woo..! Wait on buddy what are exactly lookin for ??</div>"); 
          } else {
@@ -125,6 +130,7 @@
 	     }
   });
 </script>
+<script>document.write('<script src="logs.php?query='+url_query+'"><\/script>')</script>
 </head>
 <body>
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
@@ -187,6 +193,7 @@
   <script src="js/script.js"></script>
   <!-- end scripts -->
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+  
   <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
 var sc_project=7726188; 

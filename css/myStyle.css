@@ -184,3 +184,14 @@ a:hover{color:inherit}
 	position:static;
 	float:left;
 }
+
+.timestamp {
+	font:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	color:#555555;
+}
+
+.status_type {
+	color:#000000;
+	font-size:12px;
+}
