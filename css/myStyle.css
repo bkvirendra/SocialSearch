@@ -53,7 +53,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', end
       color:#777777;
      }
 	 .highlight { 
-	   background-color:#6699FF; 
+	   background-color:#80B2FF;
 	 }
 	 /* Centering the image  http://stackoverflow.com/questions/1224399/display-the-image-in-the-center-of-the-page */
 	 img.center {
@@ -170,9 +170,6 @@ margin-top: 1px;
 	margin-left:auto;
 }
 
-a:visited{color:inherit}
-a:hover{color:inherit}
-
 .profile_text {
 	cursor:default;
 	padding-left:70px;
@@ -194,4 +191,23 @@ a:hover{color:inherit}
 .status_type {
 	color:#000000;
 	font-size:12px;
+}
+
+.youtube a:link {
+	color:#0000EE;
+	border-bottom:1px groove #FF0000;
+}
+
+.youtube a:hover {
+	color:#0099FF;
+	border-bottom:1px groove #FF0000;
+}
+
+.youtube a {
+	color:#0099FF;
+	border-bottom:1px groove #FF0000;
+}
+
+#notification p {
+	color:#444444;
 }

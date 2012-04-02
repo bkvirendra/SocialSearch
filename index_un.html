@@ -48,7 +48,7 @@
   <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
   
   <!-- Loading the Jquery from Google's CDN -->
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
   </script>
   <!-- Loading Libraries -->
   <script type="text/javascript" src="js/jquery.highlight-3.js"></script>
@@ -58,6 +58,12 @@
   <!-- Loading Google WebFornts -->
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  
+  <!-- Loading the ColorBox CSS -->
+  <link rel="stylesheet" href="css/colorbox.css">
+  
+  <!-- Loading the JS for ColorBox -->
+  <script src="js/jquery.colorbox-min.js"></script>
   
   <!-- Loading Customized StyleSheet -->
   <link href="css/myStyle.css" rel="stylesheet">
@@ -94,17 +100,18 @@
 			      var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
 				  break;
 			   	case "link":  
-				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :-</b> "+data.name+"<br><b>Link :-</b><a href="+data.link+" target='_blank'>"+data.link+"</a><br><b>Description :-</b> "+data.description+"<br><b>Caption :-</b> <a href='http://"+data.caption+"' target='_blank'>"+data.caption+"</a></p></div><div><p><i class='icon-search icon-tags'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
+				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Title : &nbsp;</b> "+data.name+"<br><b>Link :&nbsp;</b><a href="+data.link+" target='_blank'>"+data.link+"</a><br><b>Description :&nbsp;</b> "+data.description+"<br><b>Caption :&nbsp;</b> <a href='http://"+data.caption+"' target='_blank'>"+data.caption+"</a></p></div><div><p><i class='icon-search icon-tags'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
 				  break;
 				case "video":
-				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b>"+data.caption+"<br><b>Source :-</b><a href="+data.source+" target='_blank'>"+data.source+"</a></p></div><div><p><i class='icon-search icon-film'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
+				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Title : &nbsp;</b>"+data.name+"<br><b>Caption : &nbsp;</b>"+data.caption+"<br><b>Watch it Now : &nbsp;</b><a class='youtube' title="+data.name+" href="+data.source+" target='_blank'>Click here to Watch the Video</a></p></div><div><p><i class='icon-search icon-film'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
 				  break; 
 				case "photo":
-				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Name :- </b>"+data.name+"<br><b>Caption :-</b> "+data.caption+"<br><b>Link:-</b> <a href="+data.link+" target='_blank'>"+data.link+"</a></p></div><div><p><i class='icon-search icon-picture'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";  
+				  var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Title : &nbsp;</b>"+data.name+"<br><b>Caption : &nbsp;</b> "+data.caption+"<br><b>Link : &nbsp;</b> <a href="+data.link+" target='_blank'>"+data.link+"</a></p></div><div><p><i class='icon-search icon-picture'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";  
 				  break;  
 				default:
 				    var final="<div class='well'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
 		   }
+		   $(".youtube").colorbox({iframe:true, innerWidth:625, innerHeight:444});
            $('#result p').highlight(keyword);
            $('p').expander();
 		   $('.timestamp').cuteTime();
@@ -165,7 +172,7 @@
     <div class="row-fluid">
          
          <div class="well shareit social-single">
-            <p>Share the Word !!! Created By <a href="http://bkvirendra.github.com/" target="_blank" title="Virendra Rajput">Virendra Rajput</a>
+            <p>Share the Word !!! Created By <a href="http://bkvirendra.github.com/" target="_blank" title="Virendra Rajput">Virendra Rajput</a>.&nbsp;<span id="notification">( Quick Update : Added Support for viewing videos! Have Fun! )</span>
             <div id="twitterbutton"><script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script><div> <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://teckzone.in/fbinstant/" data-counturl="http://teckzone.in/fbinstant/" data-text="Facebook Instant Search! Searching Facebook In RealTime !!! " data-via="TeckZoneIn" data-related="TeckZoneIn">Tweet</a></div></div>
 
             <div id="likebutton"><iframe src="http://www.facebook.com/plugins/like.php?href=http://www.facebook.com/instantsearch/&layout=button_count&show_faces=false&width=100&action=like&font=verdana
