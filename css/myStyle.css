@@ -144,7 +144,7 @@ margin-left: 20px;
 margin-top: 1px;
 }
 
-#linkedinshare {
+#pinterest {
 margin-left: 20px;
 margin-top: 1px;
 }
@@ -163,11 +163,17 @@ margin-top: 1px;
 #showcase h1 {
 	text-align:center;
 	color:#CC0099;
-	font-family:'Arimo', Verdana, Tahoma, Georgia, serif;
-	font-size:30px;
+	font-family:'Oleo Script', cursive, Verdana, Tahoma, Georgia, serif;
+	font-size:36px;
 	font-style:normal;
 	margin-right:auto;
 	margin-left:auto;
+}
+
+#virendra p {
+	font-family:'Oleo Script', cursive, Verdana, Tahoma, Georgia, serif;
+	font-size:14px;
+	font-style:normal;
 }
 
 .profile_text {
