@@ -217,3 +217,14 @@ margin-top: 1px;
 #notification p {
 	color:#444444;
 }
+
+#sidebar p {
+	font-family:Verdana, Tahoma, Geneva, sans-serif;
+	font-style:normal;
+	font-size:12px;
+}
+
+#sidebar h1 {
+		font-family:Verdana, Tahoma, Geneva, sans-serif;
+		font-size:14px;
+}

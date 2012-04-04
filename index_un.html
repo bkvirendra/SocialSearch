@@ -73,15 +73,19 @@
   <script type="text/javascript"> 
   $(document).ready(function(){
   $("#query").focus(); // Focusing on the Search
-  $("#result").html('<br><br><br><div class="well" id="showcase"><h1>Like Us On Facebook To Stay Updated!<br><span id="fb_like" style="text-align: center"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Finstantsearch&amp;send=false&amp;layout=standard&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=351985104836764" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:35px;" allowTransparency="true"></iframe><br>Start Searching for Whats Going On "Facebook"!<br>And What People are Talking (Sharing) About It !<br></h1></div>');
+  $("#sidebar").hide();
+  $("#header").html('<br><br><br><div class="well" id="showcase"><h1>Start Searching for Whats Going On "Facebook"!<br><br>And What People are Talking (Sharing) About It !<br><br>Like Us On Facebook To Stay Updated!<br><span id="fb_like" style="text-align: center"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Finstantsearch&amp;send=false&amp;layout=standard&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=351985104836764" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:35px;" allowTransparency="true"></iframe></h1></div>');
   $('#query').typeWatch({ callback: function() {
    var search_input = $("#query").val(); // Getting the value from the Query
    document.title = ''+ search_input +' - FB Instant Search'; // Chaning the Title of the Page
    window.location.hash = '#' + $("#query").val(); // Setting the Query in the URL Bar
+   $("#header").hide();
    $("#result").empty().html('<img class="center" src="img/loading.gif">'); //Showing the Loading Image
+   $("#showing").empty().html('&nbsp; &nbsp;<img src="img/loader.gif">');
    var myquery = window.location.hash.substr(1);
    var keyword= encodeURIComponent(myquery); // Encoding it in the URI format
    var search_url='http://graph.facebook.com/search?q='+keyword+'&type=post&limit=20'; // Creating SearchURL 
+   var i = 0; //Initialize the counter
    $.ajax({ // Sending the Request
           type: "GET",  
           url: search_url,
@@ -90,6 +94,7 @@
           $("#result").html(''); 
           if(response.data) {
           $.each(response.data, function(i,data){
+		  i++;
           var profile=data.from.id;
           var title=data.from.name;
           var dis=data.message;
@@ -140,7 +145,10 @@
          } else {
 		 $("#result").html("<br><br><br><br><div id='no'>Wo...woo..! Wait on buddy what are exactly lookin for ??</div>");	 
 		 }
+		   $("#sidebar").show();
            $("#result").append(final);
+		   $("#showing").empty().html('&nbsp; Showing Results for "'+keyword+'"');
+		   $("#sidebar").html("<p><b>Search Results</b></p><p>Showing <b>"+i+"</b> Results for <b>&quot;"+keyword+"&quot;</b></p><br><br><p><b>Search It On</b></p><p><a href='http://www.google.co.in/search?q="+keyword+"' target='_blank'>Google</a><br><a href='https://twitter.com/#!/search/"+keyword+"' target='_blank'>Twitter</a><br><a href='http://search.yahoo.com/search?p="+keyword+"' target='_blank'>Yahoo</a><br><a href='http://www.bing.com/search?q="+keyword+"' target='_blank'>Bing</a><br></p>");
           });
          } else if (!response.data) {
          $("#result").html("<br><br><br><br><div id='no'>Wo...woo..! Wait on buddy what are exactly lookin for ??</div>");
@@ -152,11 +160,10 @@
            
 		});
 		},
-        wait: 900,
+        wait: 700,
         highlight: true,
         captureLength: 1
        }) 
-		
 		  var url_query = window.location.hash.substr(1);
 	      if (url_query.length) {
 			 $("#query").val(url_query);
@@ -186,7 +193,7 @@
                     <input type="submit" class="btn-navbar" id="submit">
                 </form>
                     <ul class="nav">
-                      <li><a href=""><< Start Typing &amp; we'll start looking!</a></li>
+                      <li><a href=""><span id="showing"><< Start Typing &amp; we'll start looking!</span></a></li>
                     </ul>
                 </div>
 	           
@@ -195,9 +202,9 @@
 	      </div>
 	    </div>
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row-fluid">
-         
+      <div class="span12">
          <div class="well shareit social-single">
             <p><span id="title">Make It Viral !!! Created By <a href="http://bkvirendra.github.com/" target="_blank" title="Virendra Rajput">Virendra Rajput</a>.</span>
 			
@@ -214,16 +221,23 @@
 			
 			<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fteckzone.in%2Ffbinstant%2F&media=http%3A%2F%2Fteckzone.in%2Ffbinstant%2Fimg%2Fthumbnail.jpg&description=Searching%20Facebook%20the%20awesome%20way%20!!" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></div>
 			</p>
-			
-</div><br>
-         
-         
-       <div id="result"> 
-       </div> 
-       
-    </div>
+            </div><br><div id="header"></div>
+      </div>
+         <div class="row-fluid">
+             <div class="span2">
+               <div class="well" id="sidebar">
+               
+               </div>
+             </div>
+             <div class="span10">
+               <div id="result">
+                
+               </div> 
+             </div>       
+        </div>
+  </div>
   </div>  
-
+  
   <!-- scripts concatenated and minified via build script -->
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
