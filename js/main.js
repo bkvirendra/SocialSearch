@@ -1,8 +1,10 @@
   $(document).ready(function(){
   $("#query").focus(); // Focusing on the Search
   $("#sidebar").hide();
-  $("#header").html('<br><br><br><div class="well" id="showcase"><h1>Start Searching for Whats Going On "Facebook"!<br><br>And What People are Talking (Sharing) About It !<br><br>Like Us On Facebook To Stay Updated!<br><span id="fb_like" style="text-align: center"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Finstantsearch&amp;send=false&amp;layout=standard&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=351985104836764" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:35px;" allowTransparency="true"></iframe></h1></div>');
-  
+  $("#header").html('<div class="well" id="header"><div id="carousel" class="carousel"><div class="carousel-inner"><div class="item active"><img src="img/main.jpg" alt="Main Slider1"></div><div class="item"><img src="img/main1.jpg" alt="Main Slider2"></div><div class="item"><img src="img/main2.jpg" alt="Main Slider2"></div></div><a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a><a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a></div></div>');
+   $('#carousel').carousel({
+    interval: 7000
+    })
   		$("#query").autocomplete({
 			source: function( request, response ) {
 				$.ajax({
@@ -20,11 +22,11 @@
 		});
   
   $('#query').typeWatch({ callback: function() {
+   $("#header").hide();
+   $("#result").empty().html('<img class="center" src="img/loading.gif">'); //Showing the Loading Image
    var search_input = $("#query").val(); // Getting the value from the Query
    document.title = ''+ search_input +' - FB Instant Search'; // Chaning the Title of the Page
    window.location.hash = '#' + $("#query").val(); // Setting the Query in the URL Bar
-   $("#header").hide();
-   $("#result").empty().html('<img class="center" src="img/loading.gif">'); //Showing the Loading Image
    $("#showing").empty().html('&nbsp; &nbsp;<img src="img/loader.gif">');
    var myquery = window.location.hash.substr(1);
    var keyword= encodeURIComponent(myquery); // Encoding it in the URI format
@@ -94,8 +96,8 @@
            $("#result").append(final);
 		   var showq = decodeURIComponent(keyword);
 		   if (showq.length < 15) {
-		   $("#showing").empty().html('&nbsp; Showing Results for "'+showq+'"');
-		   $("#sidebar").html("<p><b>Search Results</b></p><p>Showing <b>"+i+"</b> Results for <b>&quot;"+showq+"&quot;</b></p><br><br><p><b>Search It On</b></p><p><a href='http://www.google.co.in/search?q="+showq+"' target='_blank'>Google</a><br><a href='https://twitter.com/#!/search/"+showq+"' target='_blank'>Twitter</a><br><a href='http://search.yahoo.com/search?p="+showq+"' target='_blank'>Yahoo</a><br><a href='http://www.bing.com/search?q="+showq+"' target='_blank'>Bing</a><br></p>");
+		   $("#showing").empty().html('&nbsp; Showing Search Results for "'+showq+'"');
+		   $("#sidebar").html("<p><b>Search Results</b></p><p>Showing <b>"+i+"</b>&nbsp; Search Results for <b>&quot;"+showq+"&quot;</b></p><br><br><p><b>Search It On</b></p><p><a href='http://www.google.co.in/search?q="+showq+"' target='_blank'>Google</a><br><a href='https://twitter.com/#!/search/"+showq+"' target='_blank'>Twitter</a><br><a href='http://search.yahoo.com/search?p="+showq+"' target='_blank'>Yahoo</a><br><a href='http://www.bing.com/search?q="+showq+"' target='_blank'>Bing</a><br></p>");
 		   } else {
 			 String.prototype.trunc = function(n,useWordBoundary){
              var toLong = this.length>n,
