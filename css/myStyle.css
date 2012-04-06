@@ -68,7 +68,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', end
 	 
 #title {
   font-family:'Pacifico', Verdana, Tahoma, Georgia, serif;
-  font-size:24px;
+  font-size:20px;
   font-style:normal;
 }
  
@@ -216,6 +216,10 @@ margin-top: 1px;
 
 #notification p {
 	color:#444444;
+}
+
+#sidebar {
+	border-right:2px solid rgb(204, 204, 204);
 }
 
 #sidebar p {
