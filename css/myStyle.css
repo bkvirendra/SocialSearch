@@ -66,13 +66,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', end
       margin-top:-16px; /*image height/2 */
 	 }
 	 
-#title {
+#tiles {
   font-family:'Pacifico', Verdana, Tahoma, Georgia, serif;
   font-size:20px;
   font-style:normal;
 }
  
-#result p {
+#showing, #result p {
   font-family:'Arimo', Verdana, Tahoma, Helvetica, sans-serif;
   font-size:14px;
 }	 
@@ -160,16 +160,6 @@ margin-top: 1px;
     font-style:normal;
 }
 
-#showcase h1 {
-	text-align:center;
-	color:#CC0099;
-	font-family:'Oleo Script', cursive, Verdana, Tahoma, Georgia, serif;
-	font-size:36px;
-	font-style:normal;
-	margin-right:auto;
-	margin-left:auto;
-}
-
 #virendra p {
 	font-family:'Oleo Script', cursive, Verdana, Tahoma, Georgia, serif;
 	font-size:14px;
@@ -219,7 +209,7 @@ margin-top: 1px;
 }
 
 #sidebar {
-	border-right:2px solid rgb(204, 204, 204);
+	border:2px solid rgb(204, 204, 204);
 }
 
 #sidebar p {
@@ -237,4 +227,23 @@ margin-top: 1px;
 	margin-left:auto;
 	margin-right:auto;
 	width: 650px;
+	margin-top:auto;
+	margin-bottom:auto;
+}
+
+.thumb_nails:focus, thumb_nails:hover, thumb_nails:active  {
+	border-color:#6633CC;
+}
+
+a {
+	text-decoration:none;
+}
+
+#mybox, #answers {
+	border:2px solid rgb(204, 204, 204);
+}
+
+#showc {
+	border:8px solid rgb(204, 204, 204);
+	background-color:#000000;
 }

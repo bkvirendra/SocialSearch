@@ -30,13 +30,13 @@
 <meta property=og:type content=website>
 <meta property=og:url content=http://teckzone.in/fbinstant/>
 <meta property=og:image content=http://teckzone.in/fbinstant/img/thumbnail.jpg>
-<meta property=og:site_name content=TeckZone>
+<meta property=og:site_name content=FBInstant>
 <meta property=fb:admins content=100000109274242>
 <meta property=og:description content="Search Facebook the Awesome WaY Using FB Instant Search !!">
 <meta name=google-site-verification content=1dsOIKzM0X-l8Yf7CLzPINrjuOUEEb3ecAEvSPqq-wg>
 <link rel=author href=humans.txt>
 <meta name=description content="Search Facebook the Awesome WaY Using FB Instant Search !!">
-<meta content='Facebook search, realtime search' name=keywords>
+<meta content='Facebook search, realtime search, fbinstant' name=keywords>
 <link rel="shortcut icon" href=favicon.ico>
 <link rel=apple-touch-icon-precomposed href=apple-touch-icon-precomposed.png>
 <link rel=apple-touch-icon-precomposed sizes=72x72 href=apple-touch-icon-72x72-precomposed.png>
@@ -45,23 +45,13 @@
 <link rel=stylesheet href=css/style.css>
 <link href=http://twitter.github.com/bootstrap/assets/css/bootstrap.css rel=stylesheet>
 <link href=http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css rel=stylesheet>
-<link rel=stylesheet href=http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css type=text/css media=all>
-<script type=text/javascript src=http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js></script>
-<script src=http://code.jquery.com/ui/1.8.18/jquery-ui.min.js type=text/javascript></script>
-<script type=text/javascript src=js/jquery.highlight-3.js></script>
-<script type=text/javascript src=js/jquery.expander.min.js></script>
-<script type=text/javascript src=js/jquery.cuteTime.min.js></script>
-<script type=text/javascript src=js/typewatch.js></script>
-<script type=text/javascript src=http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js></script>
-<script type=text/javascript src=http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js></script>
+<link rel=stylesheet href=http://code.jquery.com/ui/1.8.18/themes/flick/jquery-ui.css type=text/css media=all>
 <link href='http://fonts.googleapis.com/css?family=Pacifico' rel=stylesheet type=text/css>
 <link href='http://fonts.googleapis.com/css?family=Arimo' rel=stylesheet type=text/css>
 <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel=stylesheet type=text/css>
 <link rel=stylesheet href=css/colorbox.css>
-<script src=js/jquery.colorbox-min.js></script>
-<link href=css/myStyle.css rel=stylesheet>
 <link href=css/carousel.css rel=stylesheet>
-<script type=text/javascript src=js/main.js></script>
+<link href=css/myStyle.css rel=stylesheet>
 </head>
 <body>
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href=http://browsehappy.com/>Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -73,16 +63,15 @@
 <span class=icon-bar></span>
 <span class=icon-bar></span>
 </a>
-<a id=title class=brand href=#>FB Instant Search >></a>
+<a id=tiles class=brand href=#>FB Instant Search >></a>
 <div class="nav-collapse ui-widget">
 <form class="navbar-search pull-left" id=target action=javascript:void(0);>
 <input type=text autocomplete=off autofocus id=query class="search-query search_input" placeholder="Type your query...">
 <input type=submit class=btn-navbar id=submit>
 </form>
 <ul class=nav>
-<li><a href><span id=showing><< Start Typing &amp; we'll start looking!</span></a></li>
+<li><a href><span id=showing>&lt;&lt; Start Typing &amp; we&quot;ll start looking!</span></a></li>
 </ul>
-</div>
 </div>
 </div>
 </div>
@@ -90,15 +79,14 @@
 <div class=container-fluid>
 <div class=row-fluid>
 <div class=span12>
-<div class="well shareit social-single">
-<p><span id=title>Make It Viral !!! Created By <a href=http://bkvirendra.github.com/ target=_blank title="Virendra Rajput">Virendra Rajput</a>.</span>
+<div class="well shareit social-single" id=mybox>
+<p><span id=tiles>Make It Viral !!! Created By <a href=http://bkvirendra.github.com/ target=_blank title="Virendra Rajput">Virendra Rajput</a>.</span>
 <div id=twitterbutton><script src=http://platform.twitter.com/widgets.js type=text/javascript></script><div> <a href=http://twitter.com/share class=twitter-share-button data-url=http://teckzone.in/fbinstant/ data-counturl=http://teckzone.in/fbinstant/ data-text="Facebook Instant Search! Searching Facebook In RealTime !!! " data-via=TeckZoneIn data-related=TeckZoneIn>Tweet</a></div></div>
-<div id=likebutton><iframe src="http://www.facebook.com/plugins/like.php?href=http://www.facebook.com/instantsearch/&layout=button_count&show_faces=false&width=100&action=like&font=verdana
-&colorscheme=light&height=21" scrolling=no frameborder=0 style=border:0;overflow:hidden;width:100px;height:21px allowTransparency=true></iframe></div>
+<div id=likebutton><iframe src="http://www.facebook.com/plugins/like.php?href=http://www.facebook.com/instantsearch/&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=21" scrolling=no frameborder=0 style=border:0;overflow:hidden;width:100px;height:21px allowTransparency=true></iframe></div>
 <div id=sharebutton style=padding-top:1px><a name=fb_share type=button_count href=http://www.facebook.com/sharer.php>Share</a><script src=http://static.ak.fbcdn.net/connect.php/js/FB.Share type=text/javascript></script></div>
-<div id=stumblebutton><script type=text/javascript src=http://www.reddit.com/static/button/button1.js></script></script></div>
+<div id=stumblebutton><script type=text/javascript src=http://www.reddit.com/static/button/button1.js></script></div>
 <div id=plusonebutton><g:plusone size=medium></g:plusone>
-<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fteckzone.in%2Ffbinstant%2F&media=http%3A%2F%2Fteckzone.in%2Ffbinstant%2Fimg%2Fthumbnail.jpg&description=Searching%20Facebook%20the%20awesome%20way%20!!" class=pin-it-button count-layout=horizontal><img border=0 src=//assets.pinterest.com/images/PinExt.png title="Pin It" /></a></div>
+<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fteckzone.in%2Ffbinstant%2F&amp;media=http%3A%2F%2Fteckzone.in%2Ffbinstant%2Fimg%2Fthumbnail.jpg&amp;description=Searching%20Facebook%20the%20awesome%20way%20!!" class=pin-it-button count-layout=horizontal><img border=0 src=//assets.pinterest.com/images/PinExt.png title="Pin It"></a></div>
 </p>
 </div><br><div id=header></div>
 </div>
@@ -114,6 +102,16 @@
 </div>
 </div>
 </div>
+<script type=text/javascript src=http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js></script>
+<script src=http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js type=text/javascript></script>
+<script type=text/javascript src=js/jquery.highlight-3.js></script>
+<script type=text/javascript src=js/jquery.expander.min.js></script>
+<script type=text/javascript src=js/jquery.cuteTime.min.js></script>
+<script type=text/javascript src=js/typewatch.js></script>
+<script src=js/jquery.colorbox-min.js></script>
+<script type=text/javascript src=http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js></script>
+<script type=text/javascript src=http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js></script>
+<script type=text/javascript src=js/main.js></script>
 <script src=js/plugins.js></script>
 <script src=js/script.js></script>
 <script type=text/javascript src=http://apis.google.com/js/plusone.js></script>
