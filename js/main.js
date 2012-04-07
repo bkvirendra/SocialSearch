@@ -2,6 +2,7 @@
   $("#query").focus(); // Focusing on the Search
   $("#sidebar").hide();
   $("#header").html('<div class="well" id="showc"><div id="carousel" class="carousel"><div class="carousel-inner"><div class="item active"><img src="img/main.jpg" alt="Main Slider1"></div><div class="item"><img src="img/main1.jpg" alt="Main Slider2"></div><div class="item"><img src="img/main2.jpg" alt="Main Slider2"></div></div><a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a><a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a></div><br></div>');
+  var related = new Array();
    $('#carousel').carousel({
     interval: 9000
     })
@@ -14,13 +15,14 @@
                         "q" : request.term
 					},
 					success: function( data ) {
+					related = data[1];
 					response(data[1])
 					}
 				});
 			},
 			minLength: 2
 		});
-  
+
   $('#query').typeWatch({ callback: function() {
    $("#header").hide();
    $("#result").empty().html('<img class="center" src="img/loading.gif">'); //Showing the Loading Image
@@ -76,7 +78,11 @@
 				  }
 				  break; 
 				case "photo":
-				  var final="<div class='well' id='answers'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Title : &nbsp;</b>"+data.name+"<br><b>Thumbnail :</b><br>&nbsp;<a style='margin-left:95px; margin:3px; border:3px solid rgb(204, 204, 204); display:inline-block;' class='iframe' title="+data.name+" href='http://graph.facebook.com/"+data.object_id+"/picture'><img style='border:1px solid rgb(204, 204, 204); height:235px; width:230px;' class='thumb_nails' src='http://graph.facebook.com/"+data.object_id+"/picture?type=normal' alt="+data.name+"></a><br><b>Caption : &nbsp;</b> "+data.caption+"<br><b>Link : &nbsp;</b> <a href="+data.link+" target='_blank'>"+data.link+"</a></p></div><div><p><i class='icon-search icon-picture'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";  
+				if (data.name) {
+				  var final="<div class='well' id='answers'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Title : &nbsp;</b>"+data.name+"<br><b>Thumbnail :</b><br>&nbsp;<a style='margin-left:95px; margin:3px; border:3px solid rgb(204, 204, 204); display:inline-block;' class='iframe' title="+data.name+" href='http://graph.facebook.com/"+data.object_id+"/picture'><img style='border:1px solid rgb(204, 204, 204); height:235px; width:230px;' class='thumb_nails' src='http://graph.facebook.com/"+data.object_id+"/picture?type=normal' alt="+data.name+"></a><br><b>Caption : &nbsp;</b> "+data.caption+"<br><b>Link : &nbsp;</b> <a href="+data.link+" target='_blank'>"+data.link+"</a></p></div><div><p><i class='icon-search icon-picture'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>"; 
+				} else {
+					var final="<div class='well' id='answers'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p><b>Thumbnail :</b><br>&nbsp;<a style='margin-left:95px; margin:3px; border:3px solid rgb(204, 204, 204); display:inline-block;' class='iframe' title="+data.name+" href='http://graph.facebook.com/"+data.object_id+"/picture'><img style='border:1px solid rgb(204, 204, 204); height:235px; width:230px;' class='thumb_nails' src='http://graph.facebook.com/"+data.object_id+"/picture?type=normal' alt="+data.name+"></a><br><b>Caption : &nbsp;</b> "+data.caption+"<br><b>Link : &nbsp;</b> <a href="+data.link+" target='_blank'>"+data.link+"</a></p></div><div><p><i class='icon-search icon-picture'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>"; 
+				}
 				  break;  
 				default:
 				    var final="<div class='well' id='answers'><a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'><img class='profile_pics' src='http://graph.facebook.com/"+profile+"/picture?type=small' title='"+title+"' alt='"+title+"'></a><div class='profile_text'><div class='title'><p id='name'><i class='icon-search icon-user'></i> <a href='http://www.facebook.com/profile.php?id="+profile+"' target='_blank'>"+title+"</p></a></div><div class='desc'><p>"+dis+"</p></div><div><p><i class='icon-search icon-envelope'></i><span class='status_type'> "+type+" </span> &nbsp; &nbsp; &nbsp;  <span class='timestamp'>"+data.created_time+"</span></p></div></div></div>";
@@ -95,8 +101,19 @@
            $("#result").append(final);
 		   var showq = decodeURIComponent(keyword);
 		   if (showq.length < 12) {
+			   if (related.length != 0) {
 		   $("#showing").empty().html('&nbsp; Showing Search Results for "'+showq+'"');
-		   $("#sidebar").html("<p><b>Search Results</b></p><p>Showing <b>"+i+"</b>&nbsp; Search Results for <b>&quot;"+showq+"&quot;</b></p><br><br><p><b>Search It On</b></p><p><a href='http://www.google.co.in/search?q="+showq+"' target='_blank'>Google</a><br><a href='https://twitter.com/#!/search/"+showq+"' target='_blank'>Twitter</a><br><a href='http://search.yahoo.com/search?p="+showq+"' target='_blank'>Yahoo</a><br><a href='http://www.bing.com/search?q="+showq+"' target='_blank'>Bing</a><br></p>");
+		   $("#sidebar").html("<p><b>Search Results</b></p><p>Showing <b>"+i+"</b>&nbsp; Search Results for <b>&quot;"+showq+"&quot;</b><br><br><b>Related Suggestions</b><br><br><a class='relinks' href='#"+related[0]+"'>"+related[0]+"</a><br><a class='relinks' href='#"+related[1]+"'>"+related[1]+"</a><br><a class='relinks' href='#"+related[2]+"'>"+related[2]+"</a><br><a class='relinks' href='#"+related[3]+"'>"+related[3]+"</a><br><a class='relinks' href='#"+related[4]+"'>"+related[4]+"</a><br><a class='relinks' href='#"+related[5]+"'>"+related[5]+"</a><br><a class='relinks' href='#"+related[6]+"'>"+related[6]+"</a><br><br><b>Search It On</b></p><p><a href='http://www.google.co.in/search?q="+showq+"' target='_blank'>Google</a><br><a href='https://twitter.com/#!/search/"+showq+"' target='_blank'>Twitter</a><br><a href='http://search.yahoo.com/search?p="+showq+"' target='_blank'>Yahoo</a><br><a href='http://www.bing.com/search?q="+showq+"' target='_blank'>Bing</a></p>");
+		  $('a.relinks').click(function() {
+		  var url_q = window.location.hash.substr(1);
+		  $("#query").val(url_q);
+          $("#query").trigger('typeWatch');
+        });
+		   
+			   } else {
+				   $("#showing").empty().html('&nbsp; Showing Search Results for "'+showq+'"');
+		   $("#sidebar").html("<p><b>Search Results</b></p><p>Showing <b>"+i+"</b>&nbsp; Search Results for <b>&quot;"+showq+"&quot;</b><br><br><b>Search It On</b></p><p><a href='http://www.google.co.in/search?q="+showq+"' target='_blank'>Google</a><br><a href='https://twitter.com/#!/search/"+showq+"' target='_blank'>Twitter</a><br><a href='http://search.yahoo.com/search?p="+showq+"' target='_blank'>Yahoo</a><br><a href='http://www.bing.com/search?q="+showq+"' target='_blank'>Bing</a><br></p>");
+			   }
 		   } else {
 			 String.prototype.trunc = function(n,useWordBoundary){
              var toLong = this.length>n,
@@ -123,7 +140,8 @@
         wait: 700,
         highlight: true,
         captureLength: 1
-       }) 
+       })
+	       
 		  var url_query = window.location.hash.substr(1);
 	      if (url_query.length) {
 			 $("#query").val(url_query);

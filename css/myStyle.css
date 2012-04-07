@@ -23,7 +23,7 @@
 	  width:370px;
 	  height:20px;
       padding: 4px 9px;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Arimo', Verdana, Tahoma, Helvetica, sans-serif;
       font-size: 16px;
       font-weight: normal;
       line-height: 1;
@@ -67,13 +67,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', end
 	 }
 	 
 #tiles {
-  font-family:'Pacifico', Verdana, Tahoma, Georgia, serif;
+  margin-top:3px;	
+  font-family:"Bad Script", Verdana, Tahoma, Arial, sans-serif;
   font-size:20px;
   font-style:normal;
+  font-weight:bolder;
 }
  
-#showing, #result p {
-  font-family:'Arimo', Verdana, Tahoma, Helvetica, sans-serif;
+#showing {
+  font-family:"Bad Script", Verdana, Tahoma, Arial, sans-serif;
+  font-weight:bolder;
+  font-stretch:normal;
+  font-style:normal;
+  font-size:16px;
+}
+
+#result p {
+  font-family:'Arimo', Tahoma, Verdana, Arial, Helvetica, sans-serif;
   font-size:14px;
 }	 
 
@@ -155,14 +165,14 @@ margin-top: 1px;
 }
 
 #no {
-	font-family:'Pacifico', Verdana, Tahoma, Georgia, serif;
+	font-family:"Bad Script", Tahoma, Arial, sans-serif;
     font-size:36px;
     font-style:normal;
 }
 
 #virendra p {
-	font-family:'Oleo Script', cursive, Verdana, Tahoma, Georgia, serif;
-	font-size:14px;
+	font-family:"Bad Script", Tahoma, Arial, sans-serif;
+	font-size:12px;
 	font-style:normal;
 }
 
@@ -213,14 +223,14 @@ margin-top: 1px;
 }
 
 #sidebar p {
-	font-family:Verdana, Tahoma, Geneva, sans-serif;
+	font-family:Tahoma, Verdana, Geneva, sans-serif;
 	font-style:normal;
 	font-size:12px;
 }
 
 #sidebar h1 {
-		font-family:Verdana, Tahoma, Geneva, sans-serif;
-		font-size:14px;
+	font-family:Tahoma, Verdana, Geneva, sans-serif;
+	font-size:14px;
 }
 
 #carousel {
